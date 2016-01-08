@@ -1,0 +1,14 @@
+<ion-view view-title="Pads" class="pads-page">
+  <ion-content>
+    <a class="button button-energized new-button" href="#/app/items/new">New pad</a>
+    <ion-list can-swipe="{{ true }}">
+      <ion-item ng-repeat="pad in pads" href="#/app/pads/{{ pad.id }}">
+        <span>{{ ::pad.brand }} ({{ ::pad.size }})</span>
+        <span ng-if="pad.rentedBy"> - {{ ::pad.rentedBy }}</span>
+        <ion-option-button class="button-energized">Missing</ion-option-button>
+        <ion-option-button class="button-assertive">Delete</ion-option-button>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,17 @@
+.details-page {
+  .detail-item {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+  .description, .content {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .content {
+    text-align: right;
+  }
+  .description {
+    font-weight: bold;
+  }
+}
