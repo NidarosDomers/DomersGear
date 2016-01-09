@@ -1,0 +1,11 @@
+<ion-view view-title="Players" class="players-page">
+  <ion-content>
+    <a class="button button-energized new-button" href="#/app/players/new">New player</a>
+    <ion-list can-swipe="{{ true }}">
+      <ion-item ng-repeat="player in players" ng-click="assignPad(player)">
+        <span>{{ player.name }}</span>
+        <ion-option-button class="button-assertive">Delete</ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

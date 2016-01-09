@@ -1,0 +1,14 @@
+<ion-view view-title="New Player" class="new-player-page">
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" name="name" ng-model="form.name">
+        </label>
+        <button class="button button-full button-balanced" ng-click="save()">Save</button>
+        <div class="center status-message">{{ statusMessage }}</div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

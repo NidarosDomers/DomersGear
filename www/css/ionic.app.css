@@ -9732,10 +9732,9 @@ a.button {
   transition-duration: 0s; }
 
 .center {
-  text-align: center;
-}
+  text-align: center; }
 
-.pads-page .new-button {
+.new-button {
   width: 100%; }
 
 .details-page .detail-item {

@@ -4,19 +4,22 @@
       <ion-item>
         <div class="detail-item">
           <div class="description left">Brand</div>
-          <div class="content right">{{ ::details.brand }}</div>
+          <div class="content right">{{ details.brand }}</div>
         </div>
       </ion-item>
       <ion-item>
         <div class="detail-item">
           <div class="description left">Size</div>
-          <div class="content right">{{ ::details.size }}</div>
+          <div class="content right">{{ details.size }}</div>
         </div>
       </ion-item>
       <ion-item>
         <div class="detail-item">
           <div class="description left">Rented by</div>
-          <div class="content right"><span ng-if="details.rentedBy">{{ ::details.rentedBy }}</span><button ng-if="!details.rentedBy" class="button button-balanced">Rent out</button></div>
+          <div class="content right">
+            <span ng-if="details.rentedBy">{{ details.rentedBy }}</span>
+            <button ng-if="!details.rentedBy" class="button button-balanced" ng-click="selectPlayer(details.$id)">Rent</button>
+          </div>
         </div>
       </ion-item>
     </ion-list>

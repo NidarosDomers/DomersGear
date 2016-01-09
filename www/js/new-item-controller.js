@@ -1,9 +1,10 @@
 angular.module('domers.new-item.controllers', ['domers.pads.services'])
 
-  .controller('NewItemCtrl', function ($scope, PadsService, $ionicLoading) {
+  .controller('NewItemCtrl', function ($scope, PadsService, $ionicLoading, $timeout) {
+    $scope.form = {};
     $scope.brands = ['Barnett', 'Easton', 'Bike', 'Riddell', 'Schutt', 'Douglas'];
     $scope.sizes = ['S', 'M', 'L', 'XL'];
-    $scope.form = {};
+
 
     $scope.save = function () {
       $ionicLoading.show();
@@ -17,6 +18,9 @@ angular.module('domers.new-item.controllers', ['domers.pads.services'])
         console.err('Failed to create new item', err);
       }).finally(function () {
         $ionicLoading.hide();
+        $timeout(function () {
+          $scope.statusMessage = undefined;
+        }, 2000);
       });
     };
   });
