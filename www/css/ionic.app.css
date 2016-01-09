@@ -9731,6 +9731,10 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.center {
+  text-align: center;
+}
+
 .pads-page .new-button {
   width: 100%; }
 
