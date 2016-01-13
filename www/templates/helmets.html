@@ -1,8 +1,21 @@
 <ion-view view-title="Helmets" class="helmets-page">
   <ion-content>
     <a class="button button-energized new-button" href="#/app/helmets/new">New helmet</a>
+    <label class="item item-input">
+      <span class="input-label">Brand</span>
+      <select name="brand" ng-model="form.brand" ng-options="b for b in brands">
+        <option value=""></option>
+      </select>
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Size</span>
+      <select name="size" ng-model="form.size" ng-options="s for s in sizes">
+        <option value=""></option>
+      </select>
+    </label>
+    <button class="button" ng-click="clearFilter()">Clear filter</button>
     <ion-list can-swipe="{{ true }}">
-      <ion-item ng-repeat="helmet in helmets" href="#/app/helmets/{{ helmet.$id }}">
+      <ion-item ng-repeat="helmet in helmets| filter:byBrandAndSize" href="#/app/helmets/{{ helmet.$id }}">
         <span>{{ ::helmet.brand }} ({{ ::helmet.size }})</span>
         <span ng-if="helmet.rentedBy"> - {{ ::helmet.rentedBy }}</span>
         <ion-option-button class="button-energized">Missing</ion-option-button>

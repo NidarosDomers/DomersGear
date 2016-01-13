@@ -1,8 +1,21 @@
 <ion-view view-title="Pads" class="pads-page">
   <ion-content>
     <a class="button button-energized new-button" href="#/app/pads/new">New pad</a>
+    <label class="item item-input">
+      <span class="input-label">Brand</span>
+      <select name="brand" ng-model="form.brand" ng-options="b for b in brands">
+        <option value=""></option>
+      </select>
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Size</span>
+      <select name="size" ng-model="form.size" ng-options="s for s in sizes">
+        <option value=""></option>
+      </select>
+    </label>
+    <button class="button" ng-click="clearFilter()">Clear filter</button>
     <ion-list can-swipe="{{ true }}">
-      <ion-item ng-repeat="pad in pads" href="#/app/pads/{{ pad.$id }}">
+      <ion-item ng-repeat="pad in pads | filter:byBrandAndSize" href="#/app/pads/{{ pad.$id }}">
         <span>{{ ::pad.brand }} ({{ ::pad.size }})</span>
         <span ng-if="pad.rentedBy"> - {{ ::pad.rentedBy }}</span>
         <ion-option-button class="button-energized">Missing</ion-option-button>

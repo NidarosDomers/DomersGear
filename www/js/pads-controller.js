@@ -1,25 +1,36 @@
 angular.module('domers.pads.controllers', [])
 
   .controller('PadsCtrl', function ($scope, PadsService, $ionicLoading) {
+    $scope.form = {};
     $ionicLoading.show({
       template: 'Loading...'
     });
     //TODO add sorting
-    $scope.pads = PadsService;
-    PadsService.$loaded(function () {
+    $scope.pads = PadsService.ref;
+    PadsService.ref.$loaded(function () {
       $ionicLoading.hide();
     });
+
+    $scope.brands = PadsService.getBrands();
+    $scope.sizes = PadsService.getSizes();
+
+    $scope.byBrandAndSize = function (pad) {
+      return (!$scope.form.brand || $scope.form.brand === pad.brand) && (!$scope.form.size || $scope.form.size == pad.size);
+    };
+    $scope.clearFilter = function () {
+      $scope.form = {};
+    }
   })
 
   .controller('PadsDetailController', function ($scope, PadsService, PlayersService, $ionicLoading, $ionicPopover, $stateParams, $state) {
     $scope.$stateParams = $stateParams;
     $scope.$watch('$stateParams.id', function () {
-      $scope.details = PadsService.$getRecord($stateParams.id);
+      $scope.details = PadsService.ref.$getRecord($stateParams.id);
     });
 
     $scope.assign = function (player) {
       $scope.details.rentedBy = player.name;
-      PadsService.$save($scope.details);
+      PadsService.ref.$save($scope.details);
       $scope.closePopover();
     };
 
@@ -53,13 +64,13 @@ angular.module('domers.pads.controllers', [])
 
   .controller('NewPadsCtrl', function ($scope, PadsService, $ionicLoading, $timeout) {
     $scope.form = {};
-    $scope.brands = ['Barnett', 'Easton', 'Bike', 'Riddell', 'Schutt', 'Douglas'];
-    $scope.sizes = ['S', 'M', 'L', 'XL'];
+    $scope.brands = PadsService.getBrands();
+    $scope.sizes = PadsService.getSizes();
 
 
     $scope.save = function () {
       $ionicLoading.show();
-      PadsService.$add({
+      PadsService.ref.$add({
         brand: $scope.form.brand,
         size: $scope.form.size
       }).then(function () {
