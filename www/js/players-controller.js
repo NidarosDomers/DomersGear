@@ -26,6 +26,14 @@ angular.module('domers.players.controllers', [])
 
   .controller('NewPlayerCtrl', function ($scope, PlayersService, $ionicLoading, $timeout) {
     $scope.form = {};
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+    //TODO add sorting
+    $scope.players = PlayersService;
+    PlayersService.$loaded(function () {
+      $ionicLoading.hide();
+    });
 
     $scope.save = function () {
       $ionicLoading.show();
