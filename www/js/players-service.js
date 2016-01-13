@@ -1,7 +1,7 @@
 angular.module('domers.players.services', [])
 
-  .factory('PlayersService', function ($firebaseArray) {
-    var itemsRef = new Firebase('https://vivid-torch-7687.firebaseio.com/players');
+  .factory('PlayersService', function ($firebaseArray, apiUrl) {
+    var itemsRef = new Firebase(apiUrl + '/players');
     return $firebaseArray(itemsRef);
   });
 

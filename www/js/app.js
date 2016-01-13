@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'domers.pads', 'domers.new-item.controllers', 'domers.players'])
+angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'domers.constants', 'domers.pads', 'domers.new-item.controllers', 'domers.players'])
 
   .run(function($ionicPlatform) {
 
@@ -81,5 +81,5 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'domers.p
       }
     });
     // if none of the above states are matched, use this as the fallback
-    //$urlRouterProvider.otherwise('/app/pads');
+    $urlRouterProvider.otherwise('/app/pads');
   });
