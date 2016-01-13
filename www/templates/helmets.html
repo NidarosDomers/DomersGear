@@ -1,0 +1,14 @@
+<ion-view view-title="Helmets" class="helmets-page">
+  <ion-content>
+    <a class="button button-energized new-button" href="#/app/helmets/new">New helmet</a>
+    <ion-list can-swipe="{{ true }}">
+      <ion-item ng-repeat="helmet in helmets" href="#/app/helmets/{{ helmet.$id }}">
+        <span>{{ ::helmet.brand }} ({{ ::helmet.size }})</span>
+        <span ng-if="helmet.rentedBy"> - {{ ::helmet.rentedBy }}</span>
+        <ion-option-button class="button-energized">Missing</ion-option-button>
+        <ion-option-button class="button-assertive">Delete</ion-option-button>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

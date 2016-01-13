@@ -1,6 +1,6 @@
 <ion-view view-title="Pads" class="pads-page">
   <ion-content>
-    <a class="button button-energized new-button" href="#/app/items/new">New pad</a>
+    <a class="button button-energized new-button" href="#/app/pads/new">New pad</a>
     <ion-list can-swipe="{{ true }}">
       <ion-item ng-repeat="pad in pads" href="#/app/pads/{{ pad.$id }}">
         <span>{{ ::pad.brand }} ({{ ::pad.size }})</span>

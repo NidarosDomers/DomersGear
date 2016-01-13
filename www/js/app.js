@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'domers.constants', 'domers.pads', 'domers.new-item.controllers', 'domers.players'])
+angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'domers.constants', 'domers.pads', 'domers.helmets', 'domers.players'])
 
   .run(function($ionicPlatform) {
 
@@ -35,28 +35,18 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'domers.c
       url: '/players/new',
       views: {
         'menuContent': {
-          templateUrl: 'templates/new-player.html',
+          templateUrl: 'templates/players-new.html',
           controller: 'NewPlayerCtrl'
         }
       }
     });
 
-    $stateProvider.state('app.players', {
-      url: '/players?padId',
+    $stateProvider.state('app.new-pad', {
+      url: '/pads/new',
       views: {
         'menuContent': {
-          templateUrl: 'templates/players.html',
-          controller: 'PlayersListCtrl'
-        }
-      }
-    });
-
-    $stateProvider.state('app.new-item', {
-      url: '/items/new',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/new-item.html',
-          controller: 'NewItemCtrl'
+          templateUrl: 'templates/pads-new.html',
+          controller: 'NewPadsCtrl'
         }
       }
     });
@@ -71,7 +61,7 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'domers.c
       }
     });
 
-    $stateProvider.state('app.details', {
+    $stateProvider.state('app.pads-details', {
       url: '/pads/:id',
       views: {
         'menuContent': {
@@ -80,6 +70,37 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'domers.c
         }
       }
     });
+
+    $stateProvider.state('app.new-helmet', {
+      url: '/helmets/new',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/helmets-new.html',
+          controller: 'NewHelmetsCtrl'
+        }
+      }
+    });
+
+    $stateProvider.state('app.helmets', {
+      url: '/helmets',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/helmets.html',
+          controller: 'HelmetsCtrl'
+        }
+      }
+    });
+
+    $stateProvider.state('app.helmets-details', {
+      url: '/helmets/:id',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/details.html',
+          controller: 'HelmetsDetailsCtrl'
+        }
+      }
+    });
+
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/pads');
   });

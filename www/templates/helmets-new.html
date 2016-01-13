@@ -1,0 +1,18 @@
+<ion-view view-title="New Helmet" class="new-item-page">
+  <ion-content>
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Brand</span>
+          <select name="brand" ng-model="form.brand" ng-options="b for b in brands"></select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Size</span>
+          <select name="size" ng-model="form.size" ng-options="s for s in sizes"></select>
+        </label>
+        <button class="button button-full button-balanced" ng-click="save()">Save</button>
+        <div class="center status-message">{{ statusMessage }}</div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
