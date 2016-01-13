@@ -10,7 +10,7 @@ angular.module('domers.players.controllers', [])
       $ionicLoading.hide();
     });
 
-    $scope.assignPad = function (player) {
+    /*$scope.assignPad = function (player) {
       var pad = PadsService.$getRecord($stateParams.padId);
       pad.rentedBy = player.name;
       PadsService.$save(pad);
@@ -21,7 +21,7 @@ angular.module('domers.players.controllers', [])
       $state.go('app.details', {
         id: $stateParams.padId
       })
-    }
+     }*/
   })
 
   .controller('NewPlayerCtrl', function ($scope, PlayersService, $ionicLoading, $timeout) {

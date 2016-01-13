@@ -18,7 +18,9 @@
           <div class="description left">Rented by</div>
           <div class="content right">
             <span ng-if="details.rentedBy">{{ details.rentedBy }}</span>
-            <button ng-if="!details.rentedBy" class="button button-balanced" ng-click="selectPlayer(details.$id)">Rent</button>
+            <button ng-if="!details.rentedBy" class="button button-balanced"
+                    ng-click="openPopover($event, details.$id)">Rent
+            </button>
           </div>
         </div>
       </ion-item>

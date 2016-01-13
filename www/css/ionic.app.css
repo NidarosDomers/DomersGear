@@ -9737,6 +9737,13 @@ a.button {
 .new-button {
   width: 100%; }
 
+.popover {
+  width: 100%;
+  height: 100%;
+  left: auto !important;
+  top: auto !important;
+}
+
 .details-page .detail-item {
   display: table;
   table-layout: fixed;
